@@ -1,4 +1,10 @@
 <?php
+/**
+ * Plugin Name: Custom Chambres
+ * Description: This plugin adds a custom post type "Chambres"
+ * Version: 1.0
+ * Author: Your Name
+ **/
 
 function create_chambres_post_type() {
 	$labels = [
