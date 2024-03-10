@@ -324,3 +324,35 @@ add_filter('admin_body_class', function($classes) {
 
     return $classes;
 });
+
+add_action('wp', 'update_visits_counter');
+
+function update_visits_counter() {
+    if(is_singular('chambres')) {
+        global $post;
+        $current_views = get_post_meta($post->ID, 'views_counter', true);
+        if($current_views == '') {
+            $current_views = 0;
+        }
+        $new_views = $current_views + 1;
+        update_post_meta($post->ID, 'views_counter', $new_views);
+    }
+}
+
+add_filter('manage_chambres_posts_columns', 'add_views_column');
+add_action('manage_chambres_posts_custom_column', 'render_views_column', 10, 2);
+
+function add_views_column($columns) {
+    $columns['views'] = 'Visites';
+    return $columns;
+}
+
+function render_views_column($column, $post_id) {
+    if($column == 'views') {
+        $views = get_post_meta($post_id, 'views_counter', true);
+        if($views == '') {
+            $views = 0;
+        }
+        echo $views;
+    }
+}

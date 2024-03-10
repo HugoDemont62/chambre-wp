@@ -19,7 +19,6 @@ class FrontPageContent extends PageContent{
 					'post_type'      => 'chambres',
 					'posts_per_page' => - 1,
 				] );
-
 				if ( $chambres->have_posts() ) : ?>
                     <div class="chambres-gallery">
 						<?php while ( $chambres->have_posts() ) : $chambres->the_post(); ?>
