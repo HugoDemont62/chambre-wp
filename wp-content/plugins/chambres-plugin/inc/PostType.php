@@ -41,6 +41,7 @@ class PostType{
 					'item_reverted_to_draft'   => 'Chambre revenu à l’état de brouillon',
 					'item_scheduled'           => 'Chambre planifiée',
 					'item_updated'             => 'Chambre mis à jour',
+					// Merci la doc de WordPress pour ceci
 				],
 				'public'        => true,
 				'has_archive'   => true,
