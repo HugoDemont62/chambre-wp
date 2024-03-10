@@ -356,3 +356,8 @@ function render_views_column($column, $post_id) {
         echo $views;
     }
 }
+
+function enqueue_theme_styles() {
+	wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles' );
